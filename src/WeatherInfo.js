@@ -1,7 +1,7 @@
 import React from "react";
 import EditedDate from "./EditedDate";
 
-export default function weatherInfo (props){
+export default function WeatherInfo (props){
     return(
         <div className="weatherInfo">
            <h2> {props.data.city} </h2>
@@ -13,15 +13,14 @@ export default function weatherInfo (props){
             </ul>
             <div className="row">
                 <div className="col-6">
-                      <img src="/images/icon-4.png" alt="{weatherData.description}" />
+                    <img src={props.data.icon} alt={props.data.description}/>
             <span className="unit">{Math.round(props.data.temperature)}°</span>C
                 </div>
                 <div className="col-6">
                    <ul>
-                      <li>{props.data.description}</li>  
-                      <li>Precipitation: 15%</li>
-                      <li>Humidity: {props.data.humidity}</li>
-                      <li>Wind: {props.data.wind}</li>
+                      <li className="text-capitalize">{props.data.description}</li>  
+                      <li>Humidity: {props.data.humidity}%</li>
+                      <li>Wind: {props.data.wind} Km/hr</li>
                    </ul>
                    
                 </div>

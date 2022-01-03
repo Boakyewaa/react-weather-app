@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import axios from "axios"
 import './Weather.css';
 
-import weatherInfo from "./WeatherInfo";
+import WeatherInfo from "./WeatherInfo";
 
 export default function Weather(props){
-    
-    const {weatherData, setWeatherData} = useState({ ready: false});
+
+    const [weatherData, setWeatherData] = useState({ ready: false});
     const [city, setCity] = useState (props.defaultCity);
     function handleResponse(response){
         console.log(response.data);
@@ -18,7 +18,7 @@ export default function Weather(props){
             city: response.data.name,
             humidity: response.data.main.humidity,
             date: new Date(response.data.dt * 1000),
-            
+            icon:`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
         });
 
     }
@@ -41,10 +41,11 @@ export default function Weather(props){
             <form className="search-button" onSubmit={handleSubmit}>
                  <input type="text" placeholder="Search for a location" className="search-input" onChange={handleCityChange}/>
             <input type="button" className="btn btn-primary" value="Search"/>
-            </form> 
-           <div className="Weather">
-               <weatherInfo data={weatherData} />
-           </div>     
+            </form>
+            
+               <div className="Weather">
+               <WeatherInfo data={weatherData} /> 
+           </div> 
         </div>
     );
     } else{
