@@ -26,3 +26,8 @@ body {
   border: none;
   margin-right: 5px;
 }
+.unit {
+  font-size: 80px;
+  font-weight: 500;
+  padding-left: 10px;
+}
