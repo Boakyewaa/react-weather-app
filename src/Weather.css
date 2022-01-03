@@ -11,6 +11,7 @@ body {
   background-image: url("./images/backgrd.jpg");
   background-repeat: no-repeat;
   background-size: 600px;
+
   padding: 20px;
   border-radius: 10px;
 }
@@ -26,8 +27,20 @@ body {
   border: none;
   margin-right: 5px;
 }
-.unit {
+.temperature {
   font-size: 80px;
   font-weight: 500;
   padding-left: 10px;
+}
+.unit {
+  font-size: 20px;
+  font-weight: 600;
+  position: relative;
+  line-height: 1;
+  top: -40px;
+}
+
+.unit a {
+  text-decoration: none;
+  color: orange;
 }
