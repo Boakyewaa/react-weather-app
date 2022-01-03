@@ -5,8 +5,8 @@ import './Weather.css';
 import WeatherInfo from "./WeatherInfo";
 
 export default function Weather(props){
-
-    const [weatherData, setWeatherData] = useState({ ready: false});
+    const [ready, setReady] = useState(false);
+    const [weatherData, setWeatherData] = useState({ });
     const [city, setCity] = useState (props.defaultCity);
     function handleResponse(response){
         console.log(response.data);
@@ -20,6 +20,7 @@ export default function Weather(props){
             date: new Date(response.data.dt * 1000),
             icon:response.data.weather[0].icon,
         });
+        setReady(true);
 
     }
     function search(){
@@ -32,7 +33,7 @@ export default function Weather(props){
         search();
     }
 
-    if (weatherData.ready) {
+    if (ready) {
         function handleCityChange(event){
             setCity(event.target.value);
         }
