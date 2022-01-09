@@ -3,6 +3,7 @@ import axios from "axios"
 import './Weather.css';
 
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Weather(props){
     const [ready, setReady] = useState(false);
@@ -47,6 +48,7 @@ export default function Weather(props){
                <div className="Weather">
                <WeatherInfo data={weatherData} /> 
            </div> 
+           <WeatherForecast/>
         </div>
     );
     } else{
